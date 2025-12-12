@@ -1,0 +1,53 @@
+{
+    "seed": 2023,
+    "save_dir": "experiments_model/",
+    "train_data_loader": {
+        "ILAW": "",
+        "CLWD": "",
+        "w": 432,
+        "h": 240,
+        "num_local_frames": 1,
+        "num_ref_frames": 0,
+        "load_flow": 0,
+        "is_train": 0
+    },
+    "losses": {
+        "hole_weight": 1,
+        "valid_weight": 1,
+        "codebook_weight": 1,
+        "semantic_weight": 0.1,
+        "adversarial_weight": 0.01,
+        "GAN_LOSS": "hinge",
+        "perceptual_weight": 0
+    },
+    "model": {
+        "net": "imageVQ",
+        "no_dis": 0,
+        "load_d": 1,
+        "interp_mode": "nearest",
+        "pretrained": "weights/codebook.pth"
+    },
+    "trainer": {
+        "version": "trainer_imgVQ",
+        "pretrained": "",
+        "WM_stage": 0,
+        "type": "Adam",
+        "beta1": 0.9,
+        "beta2": 0.99,
+        "glr": 1e-4,
+        "dlr": 1.5e-4,
+        "batch_size": 72,
+        "num_workers": 8,
+        "num_prefetch_queue": 8,
+        "log_freq": 100,
+        "save_freq": 1e4,
+        "iterations": 20e4,
+        "scheduler": {
+            "type": "MultiStepLR",
+            "milestones": [
+                60000e3
+            ],
+            "gamma": 1
+        }
+    }
+}
