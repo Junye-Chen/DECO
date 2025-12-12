@@ -105,7 +105,7 @@ The project supports stage-wise training; each stage has its own config in `conf
 
 1. **Image codebook pre-training**: `configs/train_imgVQ.json` trains the vector-quantised image branch.
 2. **Image generator fine-tuning**: `configs/train_img.json` refines the image reconstruction model using precomputed codebooks.
-3. **Clean prediction network**: `configs/train_cpn.json` learns the CPN component (single-frame clean estimation).
+3. **Intrinsic Background Image Prediction pre-training**: `configs/train_cpn.json` learns the IBIP component (single-frame clean estimation).
 4. **Full video model**: `configs/train_full.json` jointly optimises MSVT with frozen auxiliary branches.
 
 Adjust data roots, batch size, learning rates, and schedule parameters per stage before launching `train.py`.
